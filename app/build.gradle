@@ -1,0 +1,165 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+apply plugin: 'com.google.gms.google-services'
+
+android {
+    compileSdkVersion 29
+    buildToolsVersion "29.0.2"
+
+    defaultConfig {
+        applicationId "evans18.skymeet"
+        minSdkVersion 21
+        targetSdkVersion 29
+        versionCode 1
+        versionName "1.0"
+//        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = ["room.incremental": "true"]
+            }
+        }
+
+        // Other values set here
+        manifestPlaceholders = [GOOGLE_GEO_API_KEY: /*todo insert Google API key here:*/""]
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+        debug {
+            debuggable true
+        }
+    }
+
+    flavorDimensions "default"
+
+    productFlavors {
+
+        dev {
+            applicationIdSuffix ".dev"
+            buildConfigField 'String', 'API_URL_FLIGHT_STATS', '"https://api.flightstats.com/flex/"'
+            buildConfigField 'String', 'FLIGHT_STATS_APP_ID', /*todo insert FlightStats App ID here:*/'""'
+            buildConfigField 'String', 'FLIGHT_STATS_APP_KEY', /*todo insert FlightStats App key here:*/'""'
+            buildConfigField 'String', 'PERSONAL_API_FLIGHTS', /*todo insert SkyMeet-Backend IP address here:*/'""'
+
+            //pusher
+            buildConfigField 'String', 'PUSHER_APP_ID', /*todo insert Pusher App ID here:*/'""'
+            buildConfigField 'String', 'PUSHER_APP_KEY', /*todo insert Pusher App Key here:*/'""'
+            buildConfigField 'String', 'PUSHER_APP_SECRET', /*todo insert Pusher App Secret here:*/'""'
+            //todo (under) configure as desired
+            buildConfigField 'String', 'PUSHER_CLUSTER_SERVER', '"eu"'
+            buildConfigField 'String', 'PUSHER_CHANNEL_FLIGHTS', '"active_flights"'
+            buildConfigField 'String', 'PUSHER_CHANNEL_FLIGHTS_EVENT_NEW_LOCATIONS', '"new-location"'
+        }
+    }
+    compileOptions {
+        sourceCompatibility = 1.8
+        targetCompatibility = 1.8
+    }
+
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
+
+    androidExtensions {
+        experimental = true
+    }
+
+}
+
+ext {
+    daggerVersion = '2.25.2'
+    navigationVersion = '2.1.0'
+    anko_version = '0.10.8'
+    retrofitVersion = '2.6.2'
+    rxJavaAndroidVersion = '2.1.1'
+    rxJavaVersion = '2.2.14'
+    permissionsDispatcherVersion = '4.6.0'
+    googlePlayServiceVersion = '17.0.0'
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation 'androidx.appcompat:appcompat:1.1.0'
+    implementation 'androidx.core:core-ktx:1.1.0'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation 'com.google.android.material:material:1.1.0-beta02'
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+    implementation 'androidx.lifecycle:lifecycle-extensions:2.1.0'
+    implementation "androidx.navigation:navigation-fragment:$navigationVersion"
+    implementation "androidx.navigation:navigation-ui:$navigationVersion"
+    implementation "androidx.navigation:navigation-fragment-ktx:$navigationVersion"
+    implementation "androidx.navigation:navigation-ui-ktx:$navigationVersion"
+
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
+//    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+
+
+    // Anko Commons
+    implementation "org.jetbrains.anko:anko:$anko_version"
+    implementation "org.jetbrains.anko:anko-commons:$anko_version"
+
+    // Dagger
+    implementation "com.google.dagger:dagger:$daggerVersion"
+    implementation "com.google.dagger:dagger-android:$daggerVersion"
+    implementation "com.google.dagger:dagger-android-support:$daggerVersion"
+    kapt "com.google.dagger:dagger-compiler:$daggerVersion"
+    kapt "com.google.dagger:dagger-android-processor:$daggerVersion"
+
+    // RxJava
+    implementation "io.reactivex.rxjava2:rxjava:$rxJavaVersion"
+    implementation "io.reactivex.rxjava2:rxandroid:$rxJavaAndroidVersion"
+    // RxKotlin
+//    implementation("io.reactivex.rxjava2:rxkotlin:2.4.0")
+
+    // Retrofit
+    implementation group: 'com.squareup.retrofit2', name: 'retrofit', version: "$retrofitVersion"
+    implementation group: 'com.squareup.retrofit2', name: 'converter-gson', version: "$retrofitVersion"
+    implementation group: 'com.squareup.retrofit2', name: 'adapter-rxjava2', version: "$retrofitVersion"
+
+    // Google Location Service
+    implementation group: 'com.google.android.gms', name: 'play-services-location', version: "$googlePlayServiceVersion"
+    implementation group: 'com.google.android.gms', name: 'play-services-maps', version: "$googlePlayServiceVersion"
+
+    // Permissions Dispatcher
+    implementation "org.permissionsdispatcher:permissionsdispatcher:$permissionsDispatcherVersion"
+    kapt "org.permissionsdispatcher:permissionsdispatcher-processor:$permissionsDispatcherVersion"
+
+    // Room Database
+    def room_version = "2.2.1"
+    implementation "androidx.room:room-runtime:$room_version"
+    kapt "androidx.room:room-compiler:$room_version"
+    // For Kotlin use kapt instead of annotationProcessor
+    // optional - Kotlin Extensions and Coroutines support for Room
+    implementation "androidx.room:room-ktx:$room_version"
+    // optional - RxJava support for Room
+    implementation "androidx.room:room-rxjava2:$room_version"
+
+
+    // Reactive Streams (convert Observable to LiveData)
+    def reactivestreams_version = "1.1.1"
+    implementation "android.arch.lifecycle:reactivestreams:$reactivestreams_version"
+
+
+    // add the Firebase SDK for Google Analytics
+    implementation 'com.google.firebase:firebase-analytics:17.2.1'
+    // add SDKs for any other desired Firebase products
+    // https://firebase.google.com/docs/android/setup#available-libraries
+    implementation 'com.google.firebase:firebase-messaging:20.1.0'
+
+    // AndroidX Capable version
+    implementation 'com.heinrichreimersoftware:material-intro:2.0.0'
+
+// https://mvnrepository.com/artifact/com.pusher/pusher-java-client
+    implementation group: 'com.pusher', name: 'pusher-java-client', version: '2.0.2'
+
+
+
+}

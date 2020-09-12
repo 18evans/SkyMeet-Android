@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/radius_10"
+        android:title="@string/radius_10" />
+    <item
+        android:id="@+id/radius_30"
+        android:title="@string/radius_30" />
+    <item
+        android:id="@+id/radius_50"
+        android:title="@string/radius_50" />
+</menu>

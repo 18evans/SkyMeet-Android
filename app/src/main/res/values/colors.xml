@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#DC7259</color>
+    <color name="colorPrimaryLight">#e3a69e</color>
+    <color name="colorPrimaryDark">@color/colorPrimary</color>
+    <!--    <color name="colorPrimaryDark">#a3482c</color>-->
+    <color name="colorAccent">#59c4dc</color>
+
+    <color name="flight_green">#9DFF69</color>
+    <color name="flight_green_text">#68BA6E</color>
+
+    <color name="textPrimary">#CB2200</color>
+    <color name="textPrimaryLight">#E6A89B</color>
+    <color name="textPositive">#68BA6E</color>
+    <color name="dark_gray">#7A7A7A</color>
+    <color name="gray">#AFAFAF</color>
+    <color name="black_tint_2_85">#000000</color>
+
+    <color name="red_removal">#FF6F6F</color>
+    <color name="bg_beige">#C7BEB3</color>
+    <color name="white">#FFFFFFFF</color>
+</resources>

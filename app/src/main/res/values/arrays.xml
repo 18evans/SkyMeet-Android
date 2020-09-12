@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="radius">
+        <item>@string/radius_10</item>
+        <item>@string/radius_30</item>
+        <item>@string/radius_50</item>
+    </array>
+</resources>

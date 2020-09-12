@@ -1,0 +1,57 @@
+<resources>
+    <string name="app_name">SkyMeet</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <!--    General-->
+    <string name="placeholder">Placeholder</string>
+    <string name="snackbar_message_error_unexpected">An unknown error occurred, please try again later.</string>
+
+    <!--    Permissions -->
+    <string name="permission_location_rationale">Location permission is necessary to identify what airspace you\'re located in.</string>
+    <string name="permission_location">Location permission</string>
+    <string name="location_denied">Necessary location requirement denied.</string>
+
+    <!--    Home Fragment -->
+    <string name="action_discover">DISCOVER</string>
+    <string name="text_label_location">Location:</string>
+    <string name="radius_10">10</string>
+    <string name="radius_30">30</string>
+    <string name="radius_50">50</string>
+    <string name="radius_km">Kilometer Radius</string>
+    <string name="temporary">Communicate</string>
+
+    <!--    Aircraft action -->
+    <string name="action_track">Track</string>
+
+    <!-- tracked flight item -->
+    <string name="placeholder_company_name">WizzAir</string>
+    <string name="placeholder_flight_number">W32D23B</string>
+    <string name="placeholder_time_remaining">1:15 hrs</string>
+    <string name="placeholder_company_name_and_tail_number">WizzAir W32D23B</string>
+    <string name="list_type_tracked_aircraft_header">Inbound</string>
+    <string name="btn_clear">Clear</string>
+    <string name="progress_loading">Loading...</string>
+    <string name="tracked_aircraft_text_template">%1$s %2$s</string>
+    <string name="drawer_no_flights_text">Tracked flights will be listed here.</string>
+    <string name="msg_token_fmt">Get registration token: %s</string>
+
+    <!--    Notification -->
+    <string name="notification_channel_flight_tracked_nearby">FLIGHT_TRACKED_NEARBY</string>
+    <string name="notification_title_tracked_flight_nearby">Nearby tracked flight</string>
+    <string name="notification_body_tracked_flight_nearby">Aircraft with tail sign %1$s is %2$s km from you.</string>
+
+    <!--    Onboarding Activity   -->
+    <string name="onboarding_welcome">Welcome to SkyMeet</string>
+    <string name="onboarding_welcome_description">The app that gives aircraft enthusiasts advanced senses for the skies above.</string>
+    <string name="onboarding_permission_location">Location Permission</string>
+    <string name="onboarding_permission_location_rationale">Location data is used to identify your surrounding airspace.</string>
+    <string name="onboarding_augmented_reality">Augmented Reality</string>
+    <string name="onboarding_augmented_reality_description">See airplanes directly on your devices camera. Tap on the visible airplanes for additional actions.</string>
+
+
+</resources>
